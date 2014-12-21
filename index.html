@@ -11,10 +11,10 @@ var content = document.getElementById('content-div');
 var list = document.createElement('ul'), el;
 
 arr.forEach(function(item) {
-	el = document.createElement('li');
+	el = document.createElement('a');
 	el.textContent = item;
 	el.setAttribute('href','http://google.com');
-	list.appendChild(el);
+	list.appendChild(document.createElement('li').appendChild(el));
 });
 
 content.appendChild(list);
