@@ -8,14 +8,16 @@ var arr = ['one', 'two', 'three'];
 
 var content = document.getElementById('content-div');
 
-var list = document.createElement('ul'), el;
+var list = document.createElement('ul'), el, li;
 
 arr.forEach(function(item) {
 
 	el = document.createElement('a');
 	el.textContent = item;
 	el.setAttribute('href','http://google.com');
-	list.appendChild(document.createElement('li').appendChild(el));
+	li = document.createElement('li')
+	li.appendChild(el);
+	list.appendChild(li);
 	
 });
 
