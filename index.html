@@ -13,6 +13,7 @@ var list = document.createElement('ul'), el;
 arr.forEach(function(item) {
 	el = document.createElement('li');
 	el.textContent = item;
+	el.setAttribute('href','http://google.com');
 	list.appendChild(el);
 });
 
