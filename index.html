@@ -6,13 +6,17 @@
 
 var arr = ['one', 'two', 'three'];
 
-var content = document.getElementsById('content-div');
+var content = document.getElementById('content-div');
 
-/*.append("<ul></ul>");
-for(var i in arr) {
-    var li = "<li>";
-    $("ul").append(li.concat(arr[i]))
-}
-*/
+var list = document.creatElement('ul'), el;
+
+arr.forEach(item) {
+	el = document.createElement('li');
+	el.textContent = item;
+	list.appendChild(el);
+});
+
+content.appendChild(list);
+
 </script>
 </body>
