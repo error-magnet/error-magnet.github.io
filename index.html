@@ -25,7 +25,7 @@ xhr.onload = function(e){
 		if(item.name !== 'error-magnet.github.io'){
 			el = document.createElement('a');
 			el.textContent = item.description;
-			el.setAttribute('href', item.url);
+			el.setAttribute('href', 'http://htmlpreview.github.io/?'+item.url);
 			li = document.createElement('li')
 			li.appendChild(el);
 			list.appendChild(li);
