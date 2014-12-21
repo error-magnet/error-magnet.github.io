@@ -1,25 +1,37 @@
-<head></head>
+<head>
+<title>error-magnet</title>
+</head>
 <body>
 <div id="desc-div">A list of my personal projects:</div>
 <div id="content-div"></div>
 <script>
 
-var arr = ['one', 'two', 'three'];
+var xhr = new XMLHttpRequest();
 
-var content = document.getElementById('content-div');
+xhr.open('GET', 'http://api.github.com/users/error-magnet/repos');
+xhr.send();
 
-var list = document.createElement('ul'), el, li;
+var arr, 
+	list = document.createElement('ul'), 
+	el, 
+	li,
+	content = document.getElementById('content-div');
 
-arr.forEach(function(item) {
+xhr.onload = function(e){
 
-	el = document.createElement('a');
-	el.textContent = item;
-	el.setAttribute('href','http://google.com');
-	li = document.createElement('li')
-	li.appendChild(el);
-	list.appendChild(li);
+	arr = JSON.parse(e.target.response);
 	
-});
+	arr.forEach(function(item) {
+		if(item.name !== 'error-magnet.github.io'){
+			el = document.createElement('a');
+			el.textContent = item.description;
+			el.setAttribute('href', item.url);
+			li = document.createElement('li')
+			li.appendChild(el);
+			list.appendChild(li);
+		}
+	});
+};
 
 content.appendChild(list);
 
